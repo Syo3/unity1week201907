@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4852309931816992}
   - component: {fileID: 212031007041722332}
   - component: {fileID: 60936724403627606}
-  - component: {fileID: 50940767376690708}
   - component: {fileID: 114486918385833474}
+  - component: {fileID: 50215101816000216}
   m_Layer: 0
   m_Name: FallObject
   m_TagString: Untagged
@@ -37,13 +37,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1423033222116386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.1, y: 134.7, z: 0}
+  m_LocalPosition: {x: -3.1, y: 118.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50940767376690708
+--- !u!50 &50215101816000216
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -56,7 +56,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.1
+  m_AngularDrag: 0.05
   m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -71,7 +71,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1423033222116386}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: acda1a7225ea144d789586b2d9e90cc0, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -87,8 +87,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 14.337531, y: -10.214218}
+    - - {x: 0.3058524, y: -10.944244}
+      - {x: 14.337531, y: -10.214218}
+      - {x: 7.5662494, y: -0.034301758}
       - {x: -0.025595665, y: 10.080864}
+      - {x: -7.70384, y: -0.47640228}
       - {x: -13.468102, y: -10.144657}
 --- !u!114 &114486918385833474
 MonoBehaviour:

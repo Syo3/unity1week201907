@@ -6,7 +6,7 @@ namespace MainScene{
     public class Player : MonoBehaviour {
 
         #region define
-        private float kMoveSpeed = 1.0f;
+        private float kMoveSpeed = 100.0f;
         private enum MoveFlg{
             kNone,
             kLeft,
@@ -17,6 +17,8 @@ namespace MainScene{
         #region SerializeField
         [SerializeField, Tooltip("アニメーター")]
         private Animator _animator;
+        [SerializeField, Tooltip("RigidBody")]
+        private Rigidbody2D _rigid2D;
         #endregion
 
         #region private field
@@ -25,6 +27,7 @@ namespace MainScene{
         private MoveFlg _moveFlg;
         private MoveFlg _frameMoveFlg;
         private bool _basketFlg;
+        private Vector3 _drawCachePositoin;
         #endregion
 
         #region access
@@ -41,6 +44,18 @@ namespace MainScene{
             if(_initFlg != true) return;
             InputKey();   
         }
+
+
+        // void LateUpdate()
+        // {
+        //     _drawCachePositoin      = transform.localPosition;
+        //     transform.localPosition = new Vector3(Mathf.RoundToInt(_drawCachePositoin.x), Mathf.RoundToInt(_drawCachePositoin.y), Mathf.RoundToInt(_drawCachePositoin.z));
+        // }
+
+        // void OnRenderObject()
+        // {
+        //     transform.localPosition = _drawCachePositoin;
+        // }
 
         #region public function
         /// <summary>
@@ -62,7 +77,6 @@ namespace MainScene{
             if(_basketFlg) return;
             var basket = Instantiate(_sceneManager.PrefabManager._basket).GetComponent<Basket>();
             basket.Init(transform);
-
             _basketFlg = true;
         }
         #endregion
@@ -90,14 +104,18 @@ namespace MainScene{
         {
             switch(_moveFlg){
             case MoveFlg.kLeft:
-                transform.Translate(new Vector3(-kMoveSpeed, 0.0f, 0.0f));
+                //transform.Translate(new Vector3(-kMoveSpeed, 0.0f, 0.0f));
+                _rigid2D.position += Vector2.left * kMoveSpeed * Time.deltaTime;
+                //_rigid2D.AddForce(Vector2.left * kMoveSpeed * Time.deltaTime, ForceMode2D.Impulse);
                 if(_moveFlg != _frameMoveFlg){
                     _animator.enabled = true;
                     _animator.Play("LeftMove");
                 }
                 break;
             case MoveFlg.kRight:
-                transform.Translate(new Vector3(kMoveSpeed, 0.0f, 0.0f));
+                //transform.Translate(new Vector3(kMoveSpeed, 0.0f, 0.0f));
+                _rigid2D.position += Vector2.right * kMoveSpeed * Time.deltaTime;
+                //_rigid2D.AddForce(Vector2.right * kMoveSpeed * Time.deltaTime, ForceMode2D.Impulse);
                 if(_moveFlg != _frameMoveFlg){
                     _animator.enabled = true;
                     _animator.Play("RightMove");
