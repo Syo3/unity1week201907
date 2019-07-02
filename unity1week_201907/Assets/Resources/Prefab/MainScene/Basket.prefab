@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 60206558396594400}
   - component: {fileID: 50444081895716874}
   - component: {fileID: 114147735733983352}
+  - component: {fileID: 61390718082957358}
   m_Layer: 0
   m_Name: Basket
   m_TagString: Untagged
@@ -117,6 +118,31 @@ PolygonCollider2D:
       - {x: -14.266508, y: 6.094492}
       - {x: -14.250503, y: 3.167675}
       - {x: -13.422734, y: -1.2848072}
+--- !u!61 &61390718082957358
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1049616054953726}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -2.6544418}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 32, y: 32}
+    newSize: {x: 32, y: 32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 32, y: 26.691116}
+  m_EdgeRadius: 0
 --- !u!114 &114147735733983352
 MonoBehaviour:
   m_ObjectHideFlags: 1

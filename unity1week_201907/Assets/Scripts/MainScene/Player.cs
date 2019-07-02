@@ -28,6 +28,7 @@ namespace MainScene{
         private MoveFlg _frameMoveFlg;
         private bool _basketFlg;
         private Vector3 _drawCachePositoin;
+        private Basket _basket;
         #endregion
 
         #region access
@@ -75,8 +76,8 @@ namespace MainScene{
         public void SetBasket()
         {
             if(_basketFlg) return;
-            var basket = Instantiate(_sceneManager.PrefabManager._basket).GetComponent<Basket>();
-            basket.Init(transform);
+            _basket = Instantiate(_sceneManager.PrefabManager._basket).GetComponent<Basket>();
+            _basket.Init(transform);
             _basketFlg = true;
         }
         #endregion
@@ -111,6 +112,9 @@ namespace MainScene{
                     _animator.enabled = true;
                     _animator.Play("LeftMove");
                 }
+                if(_basketFlg){
+                    _basket.CheckMove(Vector2.left * kMoveSpeed * Time.deltaTime);
+                }
                 break;
             case MoveFlg.kRight:
                 //transform.Translate(new Vector3(kMoveSpeed, 0.0f, 0.0f));
@@ -119,6 +123,9 @@ namespace MainScene{
                 if(_moveFlg != _frameMoveFlg){
                     _animator.enabled = true;
                     _animator.Play("RightMove");
+                }
+                if(_basketFlg){
+                    _basket.CheckMove(Vector2.right * kMoveSpeed * Time.deltaTime);
                 }
                 break;
             default:

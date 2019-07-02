@@ -21,9 +21,5 @@ namespace MainScene{
             if(other.name != "Player")return;
             _sceneManager.Player.SetBasket();    
         }
-        void CollitionEnter2D(Collider2D other)
-        {
-            Debug.Log("collition");
-        }
     }
 }
