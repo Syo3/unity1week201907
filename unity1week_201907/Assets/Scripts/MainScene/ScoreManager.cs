@@ -6,6 +6,11 @@ namespace MainScene{
 
     public class ScoreManager : MonoBehaviour {
 
+        #region SerializeField
+        [SerializeField, Tooltip("スコア表示")]
+        private TMPro.TextMeshProUGUI _scoreText;
+        #endregion
+
         #region private field
         private MainSceneManager _sceneManager;
         private int _score;
@@ -34,7 +39,9 @@ namespace MainScene{
         /// <param name="add"></param>
         public void AddScore(int add)
         {
+            if(_sceneManager.ControllFlg != true) return;
             _score += add;
+            _scoreText.text = "とくてん "+_score;
         }
         #endregion
     }

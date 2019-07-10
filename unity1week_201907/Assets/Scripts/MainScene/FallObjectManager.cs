@@ -9,7 +9,7 @@ namespace MainScene{
     public class FallObjectManager : MonoBehaviour {
 
         #region define
-        private float kCreateInterval = 1.0f;
+        private float kCreateInterval = 0.25f;
         #endregion
 
         #region private field
@@ -20,10 +20,12 @@ namespace MainScene{
 
         void Update()
         {
-            if(_sceneManager == null) return;
+            if(_sceneManager == null || _sceneManager.ControllFlg != true) return;
             _intervalCount += Time.deltaTime;
             if(_intervalCount > kCreateInterval){
-                _fallObjectList.Add(Instantiate(_sceneManager.PrefabManager._fallObject).GetComponent<FallObject>());
+                var fallObject = Instantiate(_sceneManager.PrefabManager._fallObject[Random.Range(0, _sceneManager.PrefabManager._fallObject.Count)]).GetComponent<FallObject>();
+                fallObject.SceneManager = _sceneManager;
+                _fallObjectList.Add(fallObject);
                 _intervalCount = 0.0f;
             }
         }

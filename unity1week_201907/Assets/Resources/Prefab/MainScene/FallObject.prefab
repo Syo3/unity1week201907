@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 60936724403627606}
   - component: {fileID: 114486918385833474}
   - component: {fileID: 50215101816000216}
+  - component: {fileID: 58639941536301540}
   m_Layer: 0
   m_Name: FallObject
-  m_TagString: Untagged
+  m_TagString: FallObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1423033222116386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.1, y: 118.38, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,15 +55,30 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.01
   m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!58 &58639941536301540
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1423033222116386}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -3}
+  serializedVersion: 2
+  m_Radius: 20
 --- !u!60 &60936724403627606
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -87,12 +103,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.3058524, y: -10.944244}
-      - {x: 14.337531, y: -10.214218}
-      - {x: 7.5662494, y: -0.034301758}
-      - {x: -0.025595665, y: 10.080864}
-      - {x: -7.70384, y: -0.47640228}
-      - {x: -13.468102, y: -10.144657}
+    - - {x: 0.8249397, y: -15.962067}
+      - {x: 13.472389, y: -9.868164}
+      - {x: 10.853796, y: 0.13873291}
+      - {x: 2.5698342, y: 9.561768}
+      - {x: -7.0117235, y: 2.2920532}
+      - {x: -12.429931, y: -6.338028}
 --- !u!114 &114486918385833474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,6 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da9779c33dc549f09b8de73ba89fe8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigid2D: {fileID: 50215101816000216}
+  _baseScore: 10
+  _objectID: 0
 --- !u!212 &212031007041722332
 SpriteRenderer:
   m_ObjectHideFlags: 1

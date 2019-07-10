@@ -17,7 +17,6 @@ namespace MainScene{
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Trigger");
             if(other.name != "Player")return;
             _sceneManager.Player.SetBasket();    
         }

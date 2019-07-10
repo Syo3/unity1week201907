@@ -17,7 +17,7 @@ public class SoundManager : MonoBehaviour{
         if(seID >= _seList.Count){
             return;
         }
-        _audioSource.PlayOneShot(_seList[seID]);
+        _audioSource.PlayOneShot(_seList[seID], 0.5f);
     }
 
     public void PlayBgm()

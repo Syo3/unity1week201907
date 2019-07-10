@@ -6,6 +6,7 @@ namespace MainScene{
     public class PrefabManager : MonoBehaviour {
 
         public GameObject _basket;
-        public GameObject _fallObject;
+        public List<GameObject> _fallObject;
+        public GameObject _scoreGet;
     }
 }
